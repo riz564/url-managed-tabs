@@ -1,12 +1,19 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter, Switch, Redirect, Route} from "react-router-dom"
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+    <Switch>
+      <Route path="/:active_tab?" component={App} />
+      <Redirect from='/' to="/active_tab" />
+    </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
